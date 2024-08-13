@@ -1,0 +1,9 @@
+.border-custom-green {
+    border: 2px solid #28a745;
+    /* Verde claro */
+}
+
+.bg-custom-green {
+    background-color: #48c465;
+    /* Verde claro para el fondo */
+}

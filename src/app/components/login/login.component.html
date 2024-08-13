@@ -1,0 +1,82 @@
+<!-- Login 5 - Bootstrap Brain Component -->
+<section class="p-3 p-md-4 p-xl-5">
+    <div class="pt-5"></div>
+    <div class="pt-3"></div>
+    <div class="container pt-5">
+        <div class="card border-light-subtle shadow-sm">
+            <div class="row g-0">
+                <div class="col-12 col-md-6 text-bg-primary">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <div class="col-10 col-xl-8 py-3">
+                            <div class="align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                    class="size-4" width="200" height="200">
+                                    <path
+                                        d="M7.702 1.368a.75.75 0 0 1 .597 0c2.098.91 4.105 1.99 6.004 3.223a.75.75 0 0 1-.194 1.348A34.27 34.27 0 0 0 8.341 8.25a.75.75 0 0 1-.682 0c-.625-.32-1.262-.62-1.909-.901v-.542a36.878 36.878 0 0 1 2.568-1.33.75.75 0 0 0-.636-1.357 38.39 38.39 0 0 0-3.06 1.605.75.75 0 0 0-.372.648v.365c-.773-.294-1.56-.56-2.359-.8a.75.75 0 0 1-.194-1.347 40.901 40.901 0 0 1 6.005-3.223ZM4.25 8.348c-.53-.212-1.067-.411-1.611-.596a40.973 40.973 0 0 0-.418 2.97.75.75 0 0 0 .474.776c.175.068.35.138.524.21a5.544 5.544 0 0 1-.58.681.75.75 0 1 0 1.06 1.06c.35-.349.655-.726.915-1.124a29.282 29.282 0 0 0-1.395-.617A5.483 5.483 0 0 0 4.25 8.5v-.152Z" />
+                                    <path
+                                        d="M7.603 13.96c-.96-.6-1.958-1.147-2.989-1.635a6.981 6.981 0 0 0 1.12-3.341c.419.192.834.393 1.244.602a2.25 2.25 0 0 0 2.045 0 32.787 32.787 0 0 1 4.338-1.834c.175.978.315 1.969.419 2.97a.75.75 0 0 1-.474.776 29.385 29.385 0 0 0-4.909 2.461.75.75 0 0 1-.794 0Z" />
+                                </svg>
+                            </div>
+                            <hr class="border-primary-subtle mb-4">
+                            <h2 class="h1 mb-4">Sistema de Orientación Vocacional</h2>
+                            <p class="lead m-0">Test vocacionales precisos para ayudarte a definir tu futuro.</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="card-body p-3 p-md-4 p-xl-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-5">
+                                    <h3>Log in</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <form (ngSubmit)="login()">
+                            <div class="row gy-3 gy-md-4 overflow-hidden">
+                                <div class="col-12">
+                                    <label for="usuario" class="form-label">Usuario <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control border border-dark" name="text" id="usuario"
+                                        placeholder="" [(ngModel)]="username" name="username" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="password" class="form-label">Contraseña <span
+                                            class="text-danger">*</span></label>
+                                    <input type="password" class="form-control border border-dark" name="password"
+                                        id="password" value="" [(ngModel)]="password" name="password" required>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" name="remember_me"
+                                            id="remember_me">
+                                        <label class="form-check-label text-secondary" for="remember_me">
+                                            Mantener sesion
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-grid">
+                                        <button class="btn bsb-btn-xl btn-primary" type="submit">Iniciar sesion</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-12">
+                                <hr class="mt-5 mb-4 border-secondary-subtle">
+                                <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end">
+                                    <a href="registrar" class="link-secondary text-decoration-none">Crea una cuenta</a>
+                                    <a href="recuperar" class="link-secondary text-decoration-none">Olvide mi
+                                        contraseña</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

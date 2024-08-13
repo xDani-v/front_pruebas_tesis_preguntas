@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center">
+    <div class="w-50 p-5">
+        <div class="card shadow-sm p-5">
+            <form (submit)="enviar()">
+                <h2>Recuperar Contraseña</h2>
+
+                <div class="form-group pt-3">
+                    <label for="cedula">Cédula</label>
+                    <input type="text" class="form-control" id="cedula" [(ngModel)]="cedula" name="cedula"
+                        placeholder="Ingrese su cédula">
+                </div>
+
+                <div class="pt-5 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Recuperar Contraseña</button>
+                </div>
+
+                <div class="pt-3 d-flex justify-content-center">
+                    <a href="/" class="text-decoration-none">¿Ya tienes cuenta? Inicia sesión</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

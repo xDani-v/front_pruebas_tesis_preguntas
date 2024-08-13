@@ -1,0 +1,117 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>Pruebas</h3>
+        <button class="btn btn-primary" (click)="openModal()">Agregar prueba</button>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prueba of pruebas; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
+
+                    <td>{{ prueba.nombre }}</td>
+                    <td>{{ prueba.descripcion }}</td>
+                    <td>{{ prueba.tipo }}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm m-2" (click)="cargarDatos(prueba)">Editar</button>
+                        <button class="btn btn-primary btn-sm" (click)="openModal2(prueba.id)">Administrar
+                            preguntas</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" [ngClass]="{'show': isModalOpen}" [ngStyle]="{'display': isModalOpen ? 'block' : 'none'}"
+    tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Datos de la prueba</h5>
+                <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="registrarPrueba()">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" [(ngModel)]="prueba.nombre" name="nombre"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="descripcion" [(ngModel)]="prueba.descripcion"
+                            name="descripcion" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo</label>
+                        <input type="text" class="form-control" id="tipo" [(ngModel)]="prueba.tipo" name="tipo"
+                            required>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Backdrop -->
+<div *ngIf="isModalOpen" class="modal-backdrop fade show"></div>
+
+<!-- Preguntas -->
+
+<div class="modal fade" [ngClass]="{'show': isModal2Open}" [ngStyle]="{'display': isModal2Open ? 'block' : 'none'}"
+    tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl"> <!-- Agrega 'modal-lg' para un tamaño grande -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Preguntas de la prueba</h5>
+                <button type="button" class="btn-close" (click)="closeModal2()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <th>Agregar pregunta</th>
+                <input type="text" class="form-control" [(ngModel)]="pregunta_texto">
+                <button type="button" class="btn btn-primary" (click)="crearPregunta()">Agregar</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Listado de Preguntas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pregunta of preguntas | paginate: { itemsPerPage: 10, currentPage: p }">
+                            <td>{{ pregunta.texto }}</td>
+                            <td>
+                                <button type="button" class="btn btn-danger"
+                                    (click)="eliminarPregunta(pregunta.id)">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="closeModal2()">Cerrar</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Backdrop -->
+<div *ngIf="isModal2Open" class="modal-backdrop fade show"></div>
